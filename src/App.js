@@ -15,18 +15,18 @@ import ShowDetails from "./pages/ShowDetails";
 import CreateProduct from "./pages/CreateProduct";
 import Address from "./pages/Address";
 import Payment from "./pages/Payment";
-import OrderPlacedPage from "./pages/OrderPlacedPage";
+import { CartContext } from "./context/CartContext";
+import Orders from "./pages/Orders";
 
 function App() {
   const { user } = useContext(AuthContext);
+  const {cart} = useContext(CartContext)
   return (
-    // <><OrderPlacedPage/></>
     <BrowserRouter>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Lee Store</title>
       </Helmet>
-      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route
@@ -39,11 +39,15 @@ function App() {
         />
         <Route
           path="/payment"
-          element={user ? <Payment/> : <Navigate to="/login" />}
+          element={cart.length > 0 && user ? <Payment/> : <Navigate to="/cart" />}
         />
         <Route
           path="/chats"
           element={user ? <Chats /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/orders"
+          element={user ? <Orders/> : <Navigate to="/login" />}
         />
         <Route
           path="/favourites"

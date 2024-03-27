@@ -83,15 +83,12 @@ const ShowDetails = () => {
 
 
         useEffect(() => {
-            console.log(toastVal)
             setIsShow(false)
             if (toastVal) {
-                // console.log('Cart item added')
-                toast.success("Item added to the cart")
+                toast.success("Item added")
             }
         }, [toastVal])
 
-        // console.log(cartdata)
         return (
             <>  
                 <Navbar />
@@ -115,8 +112,8 @@ const ShowDetails = () => {
                         </div>
                         <div className="show-price"><h2 className="text-start fs-bold">
                             ₹{product?.price}
-                            <span className="text-success" style={{ fontSize: "0.9rem" }}>
-                                10 % Special offer <MdOutlineKeyboardArrowRight />
+                            <span className="text-success m-2" style={{ fontSize: "0.7rem" }}>
+                                  10 % Special offer <MdOutlineKeyboardArrowRight />
                             </span>
                         </h2></div>
                         {(product?.category == "Clothings") && <div className="show-size">

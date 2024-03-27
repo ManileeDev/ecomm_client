@@ -9,14 +9,13 @@ import { AuthContext } from '../context/Authcontext';
 const Address = () => {
     const { user } = useContext(AuthContext)
     const [showform, setShowform] = useState(false)
-    console.log(showform)
     return (
         <>
             <div className='d-flex gap-4 py-2 px-4 head-nav'><Link to="/cart" className='text-white'><IoIosArrowBack /></Link>ADDRESS</div><hr />
             <div className='cart-nav'>
-                <div className='nav-pages'><Link id="Link" to='/cart'><div className='nav-pages-num'>1</div><div>Cart</div></Link></div>
-                <div className='nav-pages'><div className='nav-pages-num'><Link id="Link" to='/address'>2</Link></div><div>Address</div></div>
-                <div className='nav-pages'><div className='nav-pages-num'><Link id="Link" to='/payment'>3</Link></div><div>Payment</div></div>
+                <div className='nav-pages'><div className='nav-pages-num'>1</div><div>Cart</div></div>
+                <div className='nav-pages'><div className='nav-pages-num'>2</div><div>Address</div></div>
+                <div className='nav-pages'><div className='nav-pages-num'>3</div><div>Payment</div></div>
             </div>
             <hr />
             {user.address &&

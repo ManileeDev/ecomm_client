@@ -54,12 +54,12 @@ export default function Cart() {
   }
 
    
-  const total = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+  const total = Math.floor(cart.reduce((acc, item) => acc + (item.price * item.qty), 0));
   return (
     <>
       <div className='d-flex gap-4 py-2 px-4 head-nav'><Link to="/home" className='text-white'><IoIosArrowBack /></Link>CART</div><hr />
       <div className='cart-nav'>
-        <div className='nav-pages'><Link id="Link" to='/cart'><div className='nav-pages-num'>1</div><div>Cart</div></Link></div>
+        <div className='nav-pages'><div className='nav-pages-num'>1</div><div>Cart</div></div>
         <div className='nav-pages'><div className='nav-pages-num'><Link id="Link" to='/address'>2</Link></div><div>Address</div></div>
         <div className='nav-pages'><div className='nav-pages-num'><Link id="Link" to='/payment'>3</Link></div><div>Payment</div></div>
       </div>

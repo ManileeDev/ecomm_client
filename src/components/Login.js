@@ -3,11 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/Authcontext";
 import { IoMdEyeOff } from "react-icons/io";
 import toast, { Toaster } from 'react-hot-toast'
+import { IoIosArrowBack } from "react-icons/io";
+
 
 
 export default function Login() {
 
   const {dispatch} = useContext(AuthContext)
+  const navigate = useNavigate();
   const [showPassword,setShowPassword] = useState(false)
   const [error,setError] = useState(null)
   const [loginDetails, setLoginDetails] = useState({
@@ -45,6 +48,7 @@ export default function Login() {
               localStorage.setItem('user', JSON.stringify(responseData.user))
           }
           dispatch({ type: 'LOGIN', payload: responseData.user })
+          toast.success(responseData.message)
       }
       setError(responseData.message)
   }
@@ -69,7 +73,9 @@ export default function Login() {
   return (
     <div className="main-background">
       <div className="loginpage">
+      
         <div className="login-box">
+        <span className="cross-icon text-danger m-0 p-0 right-0" onClick={()=>navigate("/home")}><IoIosArrowBack/></span>
           <div className="form-group">
             <h5 className="mb-3 text-center">Login</h5>
             <label htmlFor="">Email</label>
@@ -105,9 +111,7 @@ export default function Login() {
               <button className="btn btn-primary btn-sm" onClick={loginHandler}>
                 Login
               </button>
-            </div>
-
-            <hr />
+            </div><br/>
             <p className="forgot-password text-center mb-3">
               Need an Account? | <Link to="/signup">Sign up</Link>
             </p>
@@ -117,7 +121,7 @@ export default function Login() {
                 to="/forgotpassword"
                 className="text-decoration-none text-danger"
               >
-                Forgot your password?{" "}
+                Forgot your password?
               </Link>
             </p>
           </div>

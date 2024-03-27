@@ -1,4 +1,4 @@
-import React, { useContext} from 'react'
+import React, { useContext } from 'react'
 import { RxCross1 } from "react-icons/rx";
 import { FaShoppingCart } from "react-icons/fa";
 import { TbPlayerTrackNextFilled } from "react-icons/tb";
@@ -8,7 +8,7 @@ import { AuthContext } from '../context/Authcontext';
 import toast, { Toaster } from "react-hot-toast";
 
 
-const Popup = ({ product, isShow, setIsShow, show, setShow, value, valueHandler, cartdata, toastVal , varientHandler , varient}) => {
+const Popup = ({ product, isShow, setIsShow, show, setShow, value, valueHandler, cartdata, toastVal, varientHandler, varient }) => {
 
     const navigate = useNavigate()
     const { user } = useContext(AuthContext)
@@ -20,7 +20,7 @@ const Popup = ({ product, isShow, setIsShow, show, setShow, value, valueHandler,
         if (user) {
             axios.post("http://localhost:4500/api/addtocart", datas)
                 .then(result => {
-                    if(result.data.success == true) {
+                    if (result.data.success == true) {
 
                         toastVal(result.data.success)
                     }
@@ -67,7 +67,9 @@ const Popup = ({ product, isShow, setIsShow, show, setShow, value, valueHandler,
                         <span className={`sizes text-center${value.xxl && 'sizes-active'}`} onClick={() => valueHandler('xxl')}>10</span>
                     </div>
                 </div>}<hr /></div>
-            <div className="p-3 pb-0 w-100"><div className="d-flex justify-content-between">Total Price: <span>{product?.price}</span></div><hr /></div>
+            <div className="p-3 pb-0 w-100">
+                <div className="d-flex justify-content-between">Total Price: <span>{product?.price}</span></div><hr />
+            </div>
             <div className="p-3 w-100 text-center"><button className="btn btn-md btn-buy" onClick={cartHandler}>
                 <FaShoppingCart />
                 Add to Cart
@@ -87,7 +89,7 @@ const Popup = ({ product, isShow, setIsShow, show, setShow, value, valueHandler,
                         </div>
                     </div><hr /></div>
                 <div className="p-3 pb-0 w-100"><div className="d-flex justify-content-between">Total Price: <span>{product?.price}</span></div><hr /></div>
-                <div className="p-3 w-100 text-center"><button className="btn btn-md btn-buy">
+                <div className="p-3 w-100 text-center"><button className="btn btn-md btn-buy" onClick={cartHandler}>
                     <TbPlayerTrackNextFilled />
                     Buy Now
                 </button></div>

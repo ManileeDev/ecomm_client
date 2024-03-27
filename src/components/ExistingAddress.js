@@ -13,7 +13,7 @@ const ExistingAddress = () => {
             <div className='address-font'>{`${address.state}-${address.pin}`}</div>
             <div className='address-font'>+91 {user.phone}</div>
             <span className='text-danger'>EDIT</span>
-            <div className='btn-address mt-3 text-center'><Link to="/payment"><button className='btn btn-buy'>Deliver to this Address</button></Link></div>
+            <div className='btn-address mt-3 text-center'><Link to="/payment"><button className='btn btn-buy' style={{fontSize : "0.9rem"}}>Deliver to this Address</button></Link></div>
         </div>
     )
 }

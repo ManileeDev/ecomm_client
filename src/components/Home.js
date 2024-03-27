@@ -10,12 +10,7 @@ import Navbar from './Navbar'
 export default function Home() {
 
   const [searchVal, setSearchVal] = useState("")
-
-  const {user} = useContext(AuthContext)
   
-  useEffect(()=>{
-    if(user){toast.success("Login Successfull")}
-  },[user])
  
   return (
     <div className='home'>
