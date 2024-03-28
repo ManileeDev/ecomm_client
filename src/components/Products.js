@@ -6,7 +6,7 @@ export default function Products({ searchVal }) {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:4500/api/products").then(result => setProducts(result.data.products)).catch(err => console.log(err))
+    axios.get("https://ecomm-backend-z1w5.onrender.com/api/products").then(result => setProducts(result.data.products)).catch(err => console.log(err))
   }, [])
 
   return (

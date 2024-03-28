@@ -12,7 +12,6 @@ const Orders = () => {
     const Order = ({order}) => {
         const {cartItems,address} = order;
         const show = false;
-        console.log(cartItems)
         return (
             <div className='orders'>
                 <p style={{fontSize : "12px",color: "grey"}}>Order ID : {order._id}</p>
@@ -35,7 +34,7 @@ const Orders = () => {
     useEffect(()=>{
         const fetchData = async () => {
             try {
-              const response = await axios.get(`http://localhost:4500/api/getorder/${user._id}`);
+              const response = await axios.get(`https://ecomm-backend-z1w5.onrender.com/api/getorder/${user._id}`);
               if(response.data.sucess){
                 return setOrders(response.data.order)
               }

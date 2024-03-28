@@ -33,7 +33,7 @@ export default function Login() {
       return setError("All field must be filled");
     }
     try {
-      const response = await fetch('http://localhost:4500/api/login', {
+      const response = await fetch('https://ecomm-backend-z1w5.onrender.com/api/login', {
           headers: {
               "Content-Type": "application/json"
           },

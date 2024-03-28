@@ -16,7 +16,7 @@ export default function Cart() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:4500/api/getcart/${userId}`);
+        const response = await fetch(`https://ecomm-backend-z1w5.onrender.com/api/getcart/${userId}`);
         const json = await response.json();
         if (response.ok) {
           return dispatch({type:"UPDATE_CART",payload:json})
@@ -30,7 +30,7 @@ export default function Cart() {
 
     fetchData();
     // axios
-    //   .get("http://localhost:4500/api/getcart/" + userId)
+    //   .get("https://ecomm-backend-z1w5.onrender.com/api/getcart/" + userId)
     //   .then((result) => {
     //     if (result.data.success) {
     //       setCart(result.data.cartItems)
@@ -44,7 +44,7 @@ export default function Cart() {
 
 
   const updateCartData = (id)=>{
-    axios.post("http://localhost:4500/api/removecart", { id })
+    axios.post("https://ecomm-backend-z1w5.onrender.com/api/removecart", { id })
     .then(() => {
       toast.success("Item Removed");
       const cartItems = cart.filter((cartval) => cartval._id !== id);
@@ -60,8 +60,8 @@ export default function Cart() {
       <div className='d-flex gap-4 py-2 px-4 head-nav'><Link to="/home" className='text-white'><IoIosArrowBack /></Link>CART</div><hr />
       <div className='cart-nav'>
         <div className='nav-pages'><div className='nav-pages-num'>1</div><div>Cart</div></div>
-        <div className='nav-pages'><div className='nav-pages-num'><Link id="Link" to='/address'>2</Link></div><div>Address</div></div>
-        <div className='nav-pages'><div className='nav-pages-num'><Link id="Link" to='/payment'>3</Link></div><div>Payment</div></div>
+        <div className='nav-pages'><div className='nav-pages-num'>2</div><div>Address</div></div>
+        <div className='nav-pages'><div className='nav-pages-num'>3</div><div>Payment</div></div>
       </div>
       <hr />
       <div className='cart-details'>

@@ -33,7 +33,7 @@ export default function Signup() {
         }
           try {
             setLoading(true)
-            const response = await fetch('http://localhost:4500/api/signup', {
+            const response = await fetch('https://ecomm-backend-z1w5.onrender.com/api/signup', {
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -59,7 +59,7 @@ export default function Signup() {
           }
           try {
               setLoading(true)
-              const response = await fetch('http://localhost:4500/api/generate-otp', {
+              const response = await fetch('https://ecomm-backend-z1w5.onrender.com/api/generate-otp', {
                   headers: {
                       "Content-Type": "application/json"
                   },
@@ -89,7 +89,7 @@ export default function Signup() {
   
           try {
               setLoading(true)
-              const response = await fetch('http://localhost:4500/api/validate-otp', {
+              const response = await fetch('https://ecomm-backend-z1w5.onrender.com/api/validate-otp', {
                   headers: {
                       "Content-Type": "application/json"
                   },
