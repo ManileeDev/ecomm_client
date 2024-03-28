@@ -13,7 +13,7 @@ export default function Products({ searchVal }) {
     <div className="products">
       {products &&
         products
-          .filter((prod) => prod.name.toLowerCase().includes(searchVal))
+          .filter((prod) => prod.name.toLowerCase().includes(searchVal.toLowerCase()))
           .map((product) => (
             <Link to={`/get-product/${product._id}`} key={product._id} className="prod-card" >
               <div className='image-container'>
