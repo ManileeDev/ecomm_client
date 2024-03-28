@@ -28,7 +28,7 @@ function App() {
         <title>Lee Store</title>
       </Helmet>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<Home />} />
         <Route
           path="/cart"
           element={user ? <Cart /> : <Navigate to="/login" />}

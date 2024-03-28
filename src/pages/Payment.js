@@ -7,7 +7,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { AuthContext } from '../context/Authcontext';
 
 const Payment = () => {
-  const { cart } = useContext(CartContext);
+  const { cart,dispatch } = useContext(CartContext);
   const { user } = useContext(AuthContext);
   const [ispending, setIspending] = useState(true);
   const [isplaced, setIsplaced] = useState(false);

@@ -48,7 +48,6 @@ export default function Login() {
               localStorage.setItem('user', JSON.stringify(responseData.user))
           }
           dispatch({ type: 'LOGIN', payload: responseData.user })
-          toast.success(responseData.message)
       }
       setError(responseData.message)
   }
