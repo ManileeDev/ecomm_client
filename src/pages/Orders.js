@@ -4,6 +4,7 @@ import axios from 'axios'
 import { RxCross2 } from "react-icons/rx";
 import { Link, useNavigate } from 'react-router-dom'
 import toast, { Toaster } from 'react-hot-toast'
+import UseFetchData from '../hooks/UseFetchData';
 
 const Orders = () => {
     const {user} = useContext(AuthContext)
@@ -32,16 +33,17 @@ const Orders = () => {
         )
     }
     useEffect(()=>{
-        const fetchData = async () => {
+        const fetchData = () => {
             try {
-              const response = await axios.get(`https://ecomm-backend-z1w5.onrender.com/api/getorder/${user._id}`);
-              if(response.data.sucess){
-                return setOrders(response.data.order)
-              }
-              toast.error("Couldn't find any orders")
+              const {response,responseData} = UseFetchData(`getorder/${user._id}`);
+              // if(response.ok){
+              //   return setOrders(responseData.order)
+              // }
+              // toast.error("Couldn't find any orders")
+              console.log(response,responseData)
             }
             catch (e) {
-              console.log(e.message)
+              console.log("error")
             }
           }
       

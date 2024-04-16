@@ -4,32 +4,58 @@ import axios from 'axios'
 
 export default function Products({ searchVal }) {
   const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("https://ecomm-backend-z1w5.onrender.com/api/products").then(result => setProducts(result.data.products)).catch(err => console.log(err))
+    const fetchData = async () => {
+      try{
+        const response = await axios.get("https://ecomm-backend-z1w5.onrender.com/api/products")
+        setProducts(response.data.products);
+        setLoading(false);
+
+      }
+      catch(err){
+        console.error("error fetching data:",err)
+        setLoading(false);
+      }
+    };
+    fetchData();
+      
+    // Cleanup function to clear interval
+    // return () => clearInterval(interval);
   }, [])
 
   return (
     <div className="products">
-      {products &&
-        products
-          .filter((prod) => prod.name.toLowerCase().includes(searchVal.toLowerCase()))
-          .map((product) => (
-            <Link to={`/get-product/${product._id}`} key={product._id} className="prod-card" >
-              <div className='image-container'>
-                <img
-                  className="product-image"
-                  src={product.images[0]}
-                  alt='unloaded img'
-                />
-              </div>
-              <div className="product-name">{product.name}</div>
-              <div className="product-price">₹{product.price}/-</div>
-              <div>
-                <button className="product-add-btn">Add to Cart</button>
-              </div>
-            </Link>
-          ))}
+    {loading ? (
+        <div>
+          <p>Please wait...</p>
+          <p>Fetching data...</p>
+        </div>
+      ) : (
+        
+          <>{products &&
+            products
+              .filter((prod) => prod.name.toLowerCase().includes(searchVal.toLowerCase()))
+              .map((product) => (
+                <Link to={`/get-product/${product._id}`} key={product._id} className="prod-card" >
+                  <div className='image-container'>
+                    <img
+                      className="product-image"
+                      src={product.images[0]}
+                      alt='unloaded img'
+                    />
+                  </div>
+                  <div className="product-name">{product.name}</div>
+                  <div className="product-price">₹{product.price}/-</div>
+                  <div>
+                    <button className="product-add-btn">Add to Cart</button>
+                  </div>
+                </Link>
+              ))}</>
+        
+      )}
+      
     </div>
   )
 }
