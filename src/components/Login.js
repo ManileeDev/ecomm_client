@@ -33,7 +33,7 @@ export default function Login() {
       return setError("All field must be filled");
     }
     try {
-      const response = await fetch('https://ecomm-backend-z1w5.onrender.com/api/login', {
+      const response = await fetch('/api/login', {
           headers: {
               "Content-Type": "application/json"
           },
@@ -42,6 +42,7 @@ export default function Login() {
       })
 
       const responseData = await response.json()
+      console.log(responseData)
       if (response.ok) {
 
           if (checkBoxValue) {

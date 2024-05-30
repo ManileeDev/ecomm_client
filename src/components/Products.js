@@ -9,7 +9,7 @@ export default function Products({ searchVal }) {
   useEffect(() => {
     const fetchData = async () => {
       try{
-        const response = await axios.get("https://ecomm-backend-z1w5.onrender.com/api/products")
+        const response = await axios.get("/api/products")
         setProducts(response.data.products);
         setLoading(false);
 

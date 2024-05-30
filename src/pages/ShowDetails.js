@@ -69,7 +69,7 @@ const ShowDetails = () => {
         useEffect(() => {
             const showProduct = () => {
                 axios
-                    .get("https://ecomm-backend-z1w5.onrender.com/api/product/" + id)
+                    .get("/api/product/" + id)
                     .then((result) => setProduct(result.data.product))
                     .catch((err) => err.message);
             };

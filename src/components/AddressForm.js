@@ -24,7 +24,7 @@ const AddressForm = () => {
     }
     const submitHandler = (e) => {
         e.preventDefault();
-        axios.post('https://ecomm-backend-z1w5.onrender.com/api/address', { address, userId })
+        axios.post('/api/address', { address, userId })
             .then(res => {
                 dispatch({type : "UPDATEUSER",payload : {...user,address}})
                 alert("Address Added Successfully")
