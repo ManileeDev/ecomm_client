@@ -1,5 +1,5 @@
 {
-  "proxy" : "http://localhost:4500/",
+  "proxy" : "https://ecomm-backend-z1w5.onrender.com/",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
