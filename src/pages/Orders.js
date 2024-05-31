@@ -34,7 +34,7 @@ const Orders = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`/api/getorder/${user._id}`)
+        const response = await axios.get(`https://ecomm-backend-z1w5.onrender.com/api/getorder/${user._id}`)
       if(response.data.sucess === true){
         return setOrders(response.data.order)
       }

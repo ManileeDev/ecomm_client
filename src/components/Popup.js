@@ -18,7 +18,7 @@ const Popup = ({ product, isShow, setIsShow, show, setShow, value, valueHandler,
         //  dispatch({ type: 'ADDTOCART', payload: datas})
         //  localStorage.setItem("cart", JSON.stringify(datas))
         if (user) {
-            axios.post("/api/addtocart", datas)
+            axios.post("https://ecomm-backend-z1w5.onrender.com/api/addtocart", datas)
                 .then(result => {
                     if (result.data.success == true) {
 

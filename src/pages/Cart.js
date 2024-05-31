@@ -16,7 +16,7 @@ export default function Cart() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`/api/getcart/${userId}`);
+        const response = await fetch(`https://ecomm-backend-z1w5.onrender.com/api/getcart/${userId}`);
         const json = await response.json();
         if (response.ok) {
           return dispatch({type:"UPDATE_CART",payload:json})
@@ -30,7 +30,7 @@ export default function Cart() {
 
     fetchData();
     // axios
-    //   .get("/api/getcart/" + userId)
+    //   .get("https://ecomm-backend-z1w5.onrender.com/api/getcart/" + userId)
     //   .then((result) => {
     //     if (result.data.success) {
     //       setCart(result.data.cartItems)
@@ -44,7 +44,7 @@ export default function Cart() {
 
 
   const updateCartData = (id)=>{
-    axios.post("/api/removecart", { id })
+    axios.post("https://ecomm-backend-z1w5.onrender.com/api/removecart", { id })
     .then(() => {
       toast.success("Item Removed");
       const cartItems = cart.filter((cartval) => cartval._id !== id);
