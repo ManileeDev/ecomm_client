@@ -19,7 +19,7 @@ export default function ResetPassword() {
     if (!password || !confirmPassword) {
       return setError("Password must be filled")
     }
-    axios.post(`http://localhost:4500/api/resetpassword/${token}`,{password}).then(response => {
+    axios.post(`https://ecomm-backend-z1w5.onrender.com/api/resetpassword/${token}`,{password}).then(response => {
         console.log(response.data)
         setReset(true);
         setError(null); 
