@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { IoMdEyeOff } from "react-icons/io";
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function ResetPassword() {
   const [error, setError] = useState(null);
@@ -11,6 +12,7 @@ export default function ResetPassword() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [reset, setReset] = useState(false);
   const {token} = useParams();
+  const navigate = useNavigate();
   const passHandler = (e) => {
     setShowPassword(prev => !prev)
   }
@@ -38,9 +40,14 @@ export default function ResetPassword() {
  useEffect(()=>{
    if(reset){
     toast.success("Password reset successfully")
+    setTimeout(() => {
+      navigate("/login")
+    }, 2000)
     setReset(false)
    }
  },[reset])
+
+
   
   return (
     <div>
