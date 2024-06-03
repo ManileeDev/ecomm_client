@@ -12,6 +12,7 @@ export default function Login() {
   const {dispatch} = useContext(AuthContext)
   const navigate = useNavigate();
   const [showPassword,setShowPassword] = useState(false)
+
   const [error,setError] = useState(null)
   const [loginDetails, setLoginDetails] = useState({
     email: "",
@@ -24,7 +25,7 @@ export default function Login() {
     setLoginDetails({ ...loginDetails, [name]: value });
   };
 
-  const passHandler = (e) => {
+  const passHandler = () => {
    setShowPassword(prev => !prev)
   }
 
@@ -42,7 +43,6 @@ export default function Login() {
       })
 
       const responseData = await response.json()
-      console.log(responseData)
       if (response.ok) {
 
           if (checkBoxValue) {
