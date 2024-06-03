@@ -41,7 +41,7 @@ export default function ForgotPassword() {
       <div className="loginpage">
         <div className="login-box">
           <div className="form-control">
-            <h5 className="mb-3 text-center">Forgot Password</h5>
+            <h5 className="mb-3 text-center">Change Password</h5>
       <label htmlFor="">Email</label>
       <input
         type="email"

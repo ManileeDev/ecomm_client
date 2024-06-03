@@ -28,7 +28,7 @@ const Slider = ({ showside , show }) => {
         {user ? <div className="account-name"><h5>{user?.fullname}</h5></div> : <Link to="/login" className='account-name text-decoration-none text-black'>Login here</Link>}
         <div className='list-data'>
           <hr />
-          <Link><p>Change your password</p></Link>
+          <Link to="/forgotpassword"><p>Change your password</p></Link>
           <hr />
           {user && <p><button className='btn btn-danger btn-sm mt-2' onClick={confirmHandler}>Logout</button></p>}
         </div>
