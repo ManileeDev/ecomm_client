@@ -17,6 +17,8 @@ import Address from "./pages/Address";
 import Payment from "./pages/Payment";
 import { CartContext } from "./context/CartContext";
 import Orders from "./pages/Orders";
+import ForgotPassword from "./components/ForgotPassword";
+import ResetPassword from "./components/ResetPassword";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -54,34 +56,25 @@ function App() {
           element={user ? <Favourites /> : <Navigate to="/login" />}
         />
         <Route
-          path="/home"
-          element={<Home />}
-        />
-        <Route
           path="/signup"
-          element={!user ? <Signup /> : <Navigate to="/home" />}
+          element={!user ? <Signup /> : <Navigate to="/" />}
         />
         <Route
           path="/login"
-          element={!user ? <Login /> : <Navigate to="/home"/>}
+          element={!user ? <Login /> : <Navigate to="/"/>}
         />
-        <Route
-          path="/create"
-          element={
-            !user ? (
-              <Navigate to="/login" />
-            ) : user.role === "Admin" ? (
-              <CreateProduct />
-            ) : (
-              <h3 className="text-center text-danger">
-                Sorry don't have access
-              </h3>
-            )
-          }
-        />
+      
         <Route
           path="/get-product/:id"
           element={<ShowDetails />}
+        />
+        <Route
+          path="/forgotpassword"
+          element={<ForgotPassword />}
+        />
+        <Route
+          path="/resetpassword/:token"
+          element={<ResetPassword />}
         />
       </Routes>
     </BrowserRouter>

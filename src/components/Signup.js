@@ -242,7 +242,7 @@ export default function Signup() {
                   value={signupDetails.confirmPassword}
                   onChange={changeHandler}
                 ></input>
-                <div className="text-center mt-3">
+                <div className="text-center mt-3 mb-3">
                   <button className="btn btn-primary btn-sm" onClick={signupHandler}>Register</button>
                 </div>
                 <hr />

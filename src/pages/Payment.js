@@ -134,7 +134,7 @@ const Payment = () => {
         <h4>Order Successful</h4>
         <p>Thank you so much for your order.</p>
         </div>
-        <div className='d-flex justify-content-between mt-3 gap-3'><Link to="/orders"><button className='btn btn-success'>Checkout</button></Link><Link to="/home"><button className='btn btn-primary'>Continue Shopping</button></Link></div>
+        <div className='d-flex justify-content-between mt-3 gap-3'><Link to="/orders"><button className='btn btn-success'>Checkout</button></Link><Link to="/"><button className='btn btn-primary'>Continue Shopping</button></Link></div>
       </div>
     </>
 

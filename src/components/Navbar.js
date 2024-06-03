@@ -18,10 +18,10 @@ export default function Navbar() {
     <div className="navbar">
       <div className="d-flex gap-3 mt-2">
         <div onClick={() => setShowside(!showside)}><GiHamburgerMenu /></div>
-        <h2 className="fw-bold"><Link to="/home" className="logo">Lee Store</Link></h2>
+        <h2 className="fw-bold"><Link to="/" className="logo">Lee Store</Link></h2>
       </div>
       <div className="navbar-link d-flex text-center">
-        <NavLink className='nav-link' to="/home"><IoMdHome /></NavLink>
+        <NavLink className='nav-link' to="/"><IoMdHome /></NavLink>
         <NavLink className='nav-link' to="/favourites"><FaHeart /></NavLink>
         <NavLink className='nav-link' to="/cart"><FaShoppingCart /></NavLink>
       </div>

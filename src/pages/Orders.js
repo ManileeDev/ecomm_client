@@ -53,7 +53,7 @@ const Orders = () => {
 return (
   <div>
     <div className='order'>
-      <div className='d-flex text-center order w-100'><span className="cross-icon text-danger" onClick={() => navigate("/home")}><RxCross2 /></span><h5>My Orders</h5></div>
+      <div className='d-flex text-center order w-100'><span className="cross-icon text-danger" onClick={() => navigate("/")}><RxCross2 /></span><h5>My Orders</h5></div>
       {orders && orders.map((order, index) => (
         <Order key={index} order={order} />
       ))}</div>

@@ -75,7 +75,7 @@ export default function Login() {
       <div className="loginpage">
       
         <div className="login-box">
-        <span className="cross-icon text-danger m-0 p-0 right-0" onClick={()=>navigate("/home")}><IoIosArrowBack/></span>
+        <span className="cross-icon text-danger m-0 p-0 right-0" onClick={()=>navigate("/")}><IoIosArrowBack/></span>
           <div className="form-group">
             <h5 className="mb-3 text-center">Login</h5>
             <label htmlFor="">Email</label>

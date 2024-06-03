@@ -26,7 +26,7 @@ export default function Footer() {
       <div class="footer-box">
         <span class="navbar-icon-style-footer">
           <div>
-            <Link to="/home">
+            <Link to="/">
               <AiOutlineHome />
             </Link>
           </div>
