@@ -1,7 +1,6 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext} from 'react'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/Authcontext';
-import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -28,7 +27,7 @@ const Slider = ({ showside , show }) => {
         {user ? <div className="account-name"><h5>{user?.fullname}</h5></div> : <Link to="/login" className='account-name text-decoration-none text-black'>Login here</Link>}
         <div className='list-data'>
           <hr />
-          <Link to="/forgotpassword"><p>Change your password</p></Link>
+          {user && <Link to="/managepassword"><p>Change your password</p></Link>}
           <hr />
           {user && <p><button className='btn btn-danger btn-sm mt-2' onClick={confirmHandler}>Logout</button></p>}
         </div>

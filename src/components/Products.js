@@ -41,8 +41,13 @@ export default function Products({ searchVal }) {
                 <Link to={`/get-product/${product._id}`} key={product._id} className="prod-card" >
                   <div className='image-container'>
                     <img
-                      className="product-image"
+                      className="product-front-image"
                       src={product.images[0]}
+                      alt='unloaded img'
+                    />
+                    <img
+                      className="product-rear-image"
+                      src={product.images[1]}
                       alt='unloaded img'
                     />
                   </div>

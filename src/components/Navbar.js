@@ -1,12 +1,9 @@
-import React, { useContext, useState } from "react";
-import { AuthContext } from "../context/Authcontext";
+import React, { useState } from "react";
 import { NavLink, Link, } from "react-router-dom";
 import { IoMdHome } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { RxCross2 } from "react-icons/rx";
-import toast, { Toaster } from "react-hot-toast";
 import Slider from "./Slider";
 
 
@@ -25,7 +22,6 @@ export default function Navbar() {
         <NavLink className='nav-link' to="/favourites"><FaHeart /></NavLink>
         <NavLink className='nav-link' to="/cart"><FaShoppingCart /></NavLink>
       </div>
-      <Toaster />
       {(showside) && <Slider showside={setShowside} show={show}/>}
     </div>
     

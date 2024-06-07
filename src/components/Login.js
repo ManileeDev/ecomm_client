@@ -118,7 +118,7 @@ export default function Login() {
 
             <p className="forgot-password text-center text-danger mb-1">
               <Link
-                to="/forgotpassword"
+                to="/managepassword"
                 className="text-decoration-none text-danger"
               >
                 Forgot your password?

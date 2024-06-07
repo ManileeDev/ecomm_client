@@ -1,18 +1,15 @@
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
-import LandingPage from "./components/LandingPage";
 import { useContext } from "react";
 import { AuthContext } from "./context/Authcontext";
 import Cart from "./pages/Cart";
 import Favourites from "./pages/Favourites";
-import Navbar from "./components/Navbar";
 import Chats from "./pages/Chats";
 import { Helmet } from "react-helmet";
 import ShowDetails from "./pages/ShowDetails";
-import CreateProduct from "./pages/CreateProduct";
 import Address from "./pages/Address";
 import Payment from "./pages/Payment";
 import { CartContext } from "./context/CartContext";
@@ -69,7 +66,7 @@ function App() {
           element={<ShowDetails />}
         />
         <Route
-          path="/forgotpassword"
+          path="/managepassword"
           element={<ForgotPassword />}
         />
         <Route
