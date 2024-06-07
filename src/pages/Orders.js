@@ -7,7 +7,7 @@ import toast, { Toaster } from 'react-hot-toast'
 
 const Orders = () => {
   const { user } = useContext(AuthContext)
-  const [orders, setOrders] = useState()
+  const [orders, setOrders] = useState(null)
   const navigate = useNavigate();
   const Order = ({ order }) => {
     const { cartItems, address } = order;
@@ -16,13 +16,13 @@ const Orders = () => {
       <div className='orders'>
         <p style={{ fontSize: "12px", color: "grey" }}>Order ID : {order._id}</p>
         {cartItems.map((cart, index) => (
-          <>
-            <div className='order-details-container' key={index}>
+          <div key={index}>
+            <div className='order-details-container' >
               <div><p>{cart.item_name}</p><span>Qty : {cart.qty}</span> <span>Amount : Rs.{cart.price}/-</span></div>
               <img src={cart?.images[0]} />
             </div>
             <hr className='mb-2' />
-          </>
+          </div>
 
         ))}
         {show && (<><div className='address-font'>{`${address.building}, ${address.street}, ${address.city}`}</div>
@@ -54,9 +54,14 @@ return (
   <div>
     <div className='order'>
       <div className='d-flex text-center order w-100'><span className="cross-icon text-danger" onClick={() => navigate("/")}><RxCross2 /></span><h5>My Orders</h5></div>
-      {orders && orders.map((order, index) => (
+      {orders ? orders.map((order, index) => (
         <Order key={index} order={order} />
-      ))}</div>
+      )) : <div className='order-placed'>
+      <img src="../../assets/Empty.png" width={150} />
+   <h4>No Orders here</h4>
+   <Link id="Link" to="/">Continue Shopping</Link>
+   </div>}
+      </div>
     <Toaster />
   </div>
 )

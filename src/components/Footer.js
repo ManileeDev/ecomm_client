@@ -13,14 +13,12 @@ import Slider from "./Slider";
 export default function Footer() {
 
   const {cart} = useContext(CartContext)
-  const [showside, setShowside] = useState(false)
   const [show,setShow] = useState(false)
 
-  // const {cartValue} = useContext(AuthContext)
- 
-  // const cartValue = useSelector((state)=>state.auth.cartValue)
+  const closeModal = () => {
+    setShow(false)
+  }
 
-  // console.log("Cartvalue :",cartValue)
   return (
     <div class="footer-sticky">
       <div class="footer-box">
@@ -59,15 +57,13 @@ export default function Footer() {
           Orders
         </span>
         <span class="navbar-icon-style-footer">
-          <div onClick={() => setShowside(!showside)}>
-            <Link>
+          <div onClick={()=>setShow(true)}>
               <CgProfile />
-            </Link>
           </div>
           Profile
         </span>
       </div>
-      {(showside) && <Slider showside={setShowside} show={show}/>}
+      {(show) && <Slider handleClose={closeModal} show={show}/>}
     </div>
   );
 }

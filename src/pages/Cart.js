@@ -29,14 +29,6 @@ export default function Cart() {
     }
 
     fetchData();
-    // axios
-    //   .get("https://ecomm-backend-z1w5.onrender.com/api/getcart/" + userId)
-    //   .then((result) => {
-    //     if (result.data.success) {
-    //       setCart(result.data.cartItems)
-    //     }
-    //   })
-    //   .catch((err) => console.log(err.message));
 
   }, [dispatch,userId]);
 
@@ -85,7 +77,7 @@ export default function Cart() {
           <h5>{total}</h5>
           <h6 className='text-danger'>Total Cart</h6>
           </div>
-          <Link to='/address'><button className='btn btn-md btn-buy'>continue</button></Link>
+          <Link to='/address'><button className='btn btn-md btn-buy'>Continue</button></Link>
         </div>
     </>
 

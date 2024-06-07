@@ -8,13 +8,14 @@ import Slider from "./Slider";
 
 
 export default function Navbar() {
-  const [showside, setShowside] = useState(false)
   const [show,setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
 
   return (
     <div className="navbar">
       <div className="d-flex gap-3 mt-2">
-        <div onClick={() => setShowside(!showside)}><GiHamburgerMenu /></div>
+        <div onClick={() => setShow(true)}><GiHamburgerMenu /></div>
         <h2 className="fw-bold"><Link to="/" className="logo">Lee Store</Link></h2>
       </div>
       <div className="navbar-link d-flex text-center">
@@ -22,7 +23,7 @@ export default function Navbar() {
         <NavLink className='nav-link' to="/favourites"><FaHeart /></NavLink>
         <NavLink className='nav-link' to="/cart"><FaShoppingCart /></NavLink>
       </div>
-      {(showside) && <Slider showside={setShowside} show={show}/>}
+      {show && <Slider show={show} handleClose={handleClose}/>}
     </div>
     
   );

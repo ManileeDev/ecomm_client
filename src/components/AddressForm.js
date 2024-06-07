@@ -3,6 +3,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { TfiTarget } from "react-icons/tfi";
 import { FaPhoneAlt } from "react-icons/fa";
 import { AuthContext } from '../context/Authcontext';
+import {Toaster,toast} from "react-hot-toast"
 import axios from 'axios';
 const AddressForm = () => {
 
@@ -26,8 +27,8 @@ const AddressForm = () => {
         e.preventDefault();
         axios.post('https://ecomm-backend-z1w5.onrender.com/api/address', { address, userId })
             .then(res => {
-                dispatch({type : "UPDATEUSER",payload : {...user,address}})
-                alert("Address Added Successfully")
+                toast.success("Address Added Successfully")
+                setTimeout(()=>{dispatch({type : "UPDATEUSER",payload : {...user,address}})},1500)
             })
             .catch(err => {
                 console.log(err);
@@ -56,7 +57,7 @@ const AddressForm = () => {
                 </div>
                 <div className='btn-bottom'><button className='btn btn-buy' type='submit'>Save Contact and Continue</button></div>
             </form>
-
+          <Toaster/>
         </div>
     )
 }

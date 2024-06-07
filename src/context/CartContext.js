@@ -6,6 +6,8 @@ const cartReducer = (state,action) => {
     switch(action.type){
         case "UPDATE_CART" :
             return {cart : action.payload}
+        case "CLEAR_CART" :
+            return {cart : []}
         default :
           return state
     }

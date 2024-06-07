@@ -52,7 +52,7 @@ const ShowDetails = () => {
         })
         }
         
-        const [imageIndex,setImageIndex] = useState(1)
+        const [imageIndex,setImageIndex] = useState(0)
         
         const varientHandler = (varient) => {
             setVarient(
@@ -85,12 +85,7 @@ const ShowDetails = () => {
             setImageIndex(newIndex);
         }
 
-        // const slideRight = () => {
-        //     if(imageIndex === product?.images.length - 1) return;
-        //     const newIndex = imageIndex + 1;
-        //     setImageIndex(newIndex);
-        // }
-        // }
+
         const slideRight = () => { 
             if(imageIndex === product?.images.length - 1) return;
             const newIndex = imageIndex + 1;
@@ -136,7 +131,7 @@ const ShowDetails = () => {
                                   10 % Special offer <MdOutlineKeyboardArrowRight />
                             </span>
                         </h2></div>
-                        {(product?.category == "Clothings") && <div className="show-size">
+                        {(product?.category == "Clothing") && <div className="show-size">
                             <h5>Select Size</h5>
                             <div className="select-size">
                                 <span className={`sizes ${size.m && 'sizes-active'}`} onClick={() => valueHandler('m')}>M</span>

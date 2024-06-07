@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/Authcontext";
 import { IoMdEyeOff } from "react-icons/io";
+import { IoMdEye } from "react-icons/io";
 import toast, { Toaster } from 'react-hot-toast'
 import { IoIosArrowBack } from "react-icons/io";
 
@@ -94,7 +95,7 @@ export default function Login() {
               value={loginDetails.password}
               onChange={changeHandler}
             />
-            <span className="pass-logo" onClick={passHandler}><IoMdEyeOff /></span>
+            <span className="pass-logo" onClick={passHandler}>{!showPassword ? <IoMdEyeOff /> : <IoMdEye/>}</span>
             </div>
             
             <div className="d-flex align-items-center mt-2">

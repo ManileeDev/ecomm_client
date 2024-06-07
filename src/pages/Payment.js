@@ -15,6 +15,15 @@ const Payment = () => {
   const amount = Math.floor(cart.reduce((acc, item) => acc + (item.price * item.qty), 0));
   const currency = "INR"
   const receipt = "testing321"
+  
+  const updateCartData = (id)=>{
+    axios.post("https://ecomm-backend-z1w5.onrender.com/api/removecart", { id })
+    .then(() => {
+      console.log("Item Removed");
+      dispatch({ type: "CLEAR_CART"});
+    })
+    .catch(err => console.log(err.message))    
+  }
 
   const paymentHandler = async (e) => {
     try {
@@ -43,10 +52,11 @@ const Payment = () => {
               paymentOrderId: response.razorpay_order_id,
               status: "order placed"
             })
-            console.log(orderResponse)
+            console.log("order response", orderResponse);
             if (orderResponse.data.sucess) {
               setIsplaced(true)
               setIspending(false)
+              updateCartData(cart._id)
               return toast.success("Order Placed")
             }
           }
@@ -67,13 +77,7 @@ const Payment = () => {
       };
       var rzp1 = new window.Razorpay(options);
       rzp1.on('payment.failed', function (response) {
-        alert(response.error.code);
-        alert(response.error.description);
-        alert(response.error.source);
-        alert(response.error.step);
-        alert(response.error.reason);
-        alert(response.error.metadata.order_id);
-        alert(response.error.metadata.payment_id);
+        toast.error("Payment failed")
       });
       rzp1.open();
       e.preventDefault();
@@ -130,7 +134,7 @@ const Payment = () => {
       </div>
       <div  className={isplaced ? "order-placed-container" : "hide"}>
         <div className='order-placed'>
-           <img src="data:image/png;base64,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" width={150} />
+           <img src="../../assets/done.png" width={150} />
         <h4>Order Successful</h4>
         <p>Thank you so much for your order.</p>
         </div>
