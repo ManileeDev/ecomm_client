@@ -2,7 +2,7 @@
 
 :root {
   --primary: rgb(51, 57, 138);
-  --secondary: rgb(67, 105, 194);
+  --secondary: rgb(194, 67, 137);
 }
 * {
   margin: 0;
