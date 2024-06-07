@@ -148,7 +148,7 @@ hr {
 }
 
 .search-bar {
-  position: sticky;
+  /* position: sticky; */
   align-items: center;
   padding: 3px 6px;
   width: 100%;
@@ -190,7 +190,7 @@ hr {
     bottom: 20;
     left: 0;
     z-index: -1;
-    transition: opacity 0.4s ease-out;
+    transition: opacity 1s ease-out;
 }
 
 .product-front-image {
@@ -703,6 +703,7 @@ hr {
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
+    z-index: 2;
     background-color: white;
     padding: 5px 0px;
   }

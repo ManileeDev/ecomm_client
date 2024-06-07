@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { FaArrowCircleLeft } from "react-icons/fa";
+import { FaArrowCircleRight } from "react-icons/fa";
 import axios from "axios";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoShareSocialOutline } from "react-icons/io5";
@@ -50,6 +52,7 @@ const ShowDetails = () => {
         })
         }
         
+        const [imageIndex,setImageIndex] = useState(1)
         
         const varientHandler = (varient) => {
             setVarient(
@@ -76,9 +79,24 @@ const ShowDetails = () => {
             showProduct();
         }, []);
 
-        // const sliderImages = [product?.images]
+        const slideLeft = () => {
+                if(imageIndex === 0) return;
+            const newIndex = imageIndex - 1;
+            setImageIndex(newIndex);
+        }
 
-        // console.log(sliderImages)
+        // const slideRight = () => {
+        //     if(imageIndex === product?.images.length - 1) return;
+        //     const newIndex = imageIndex + 1;
+        //     setImageIndex(newIndex);
+        // }
+        // }
+        const slideRight = () => { 
+            if(imageIndex === product?.images.length - 1) return;
+            const newIndex = imageIndex + 1;
+            setImageIndex(newIndex);
+        }
+        
 
 
 
@@ -95,7 +113,9 @@ const ShowDetails = () => {
                 <div className="details-container">
                     <div className="d-flex flex-column justify-content-space-between align-items-center gap-2 w-75">
                         <div className="show-image">
-                            <img src={product?.images[0]} alt={product?.name} />
+                            <span onClick={slideLeft} style={{color : "rgb(51, 57, 138)"}}><FaArrowCircleLeft/></span>
+                            <img src={product?.images[imageIndex]} alt={product?.name} />
+                            <span onClick={slideRight} style={{color : "rgb(51, 57, 138)"}}><FaArrowCircleRight/></span>
                         </div>
                         <div className="show-title-content">
                             <div className="show-title">{product?.name}</div>
