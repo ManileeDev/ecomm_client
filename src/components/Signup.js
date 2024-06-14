@@ -13,7 +13,6 @@ export default function Signup() {
     phone: "",
     password: "",
     confirmPassword: "",
-    otp: "",
   });
 
   const [error, setError] = useState(null)
@@ -25,6 +24,10 @@ export default function Signup() {
   const [signupSuccess, setSignupSuccess] = useState(false)
   const [serverError, setServerError] = useState(false)
   const [loading, setLoading] = useState(false)
+
+  const [otp, setOtp] = useState(new Array(4).fill(""))
+
+  const fullOtp = otp.join("")
 
   const navigate = useNavigate();
 
@@ -94,7 +97,7 @@ export default function Signup() {
 
   const verifyOTP = async () => {
 
-    if (!signupDetails.otp) {
+    if (!fullOtp) {
       return setError('Please enter your otp')
     }
 
@@ -105,7 +108,7 @@ export default function Signup() {
           "Content-Type": "application/json"
         },
         method: 'POST',
-        body: JSON.stringify({ email: signupDetails.email, otp: signupDetails.otp })
+        body: JSON.stringify({ email: signupDetails.email, otp: fullOtp })
       })
       const json = await response.json()
 
@@ -145,12 +148,31 @@ export default function Signup() {
       }, 2000)
     }
   }, [signupSuccess])
+
+  const handleOTP = (e, index) => {
+    if (isNaN(e.target.value)) return
+    setOtp([...otp.map((data, i) => (i === index ? e.target.value : data))])
+    if (e.target.value && e.target.nextSibling) {
+      e.target.nextSibling.focus()
+    }
+    else if(e.key === "Backspace" && !e.target.value && index>0){
+      const previousInput = e.target.previousSibling;
+      if(previousInput) previousInput.focus();
+      setOtp([...otp.map((data, i) => (i === index - 1 ? "" : data))])
+    }
+  }
+
+  const handlePaste = (e) => {
+    const value = e.clipboardData.getData("text");
+    if (isNaN(value)) return
+    setOtp([...value.split("")])
+  }
+
   return (
     <div className="main-background">
       <div className="loginpage">
         <div className="login-box">
           <div className="form-control">
-            <h5 className="mb-3 text-center">Signup</h5>
             {/* {error && <div className='text-center my-2'>
                                     <small className='text-danger'>{error}</small>
                                 </div>} */}
@@ -177,18 +199,18 @@ export default function Signup() {
               </>
             )}
             {otpbox && (
-              <>
-                <label htmlFor="">Please OTP to Verify</label>
-                <input
-                  type="number"
-                  value={signupDetails.otp}
-                  className="form-control form-control-sm mb-2"
-                  name="otp"
-                  minLength="4"
-                  onChange={changeHandler}
-                  required
-                />
-                <div className="text-center mt-3">
+              <div className="otp-box">
+                <label htmlFor="">Enter OTP</label>
+                <div className="otp-field">
+                  {
+                    otp.map((data, i) => (
+                    <input type="text" value={data} maxLength={1} 
+                     onChange={(e) => handleOTP(e, i)} 
+                     onKeyDown={(e)=> handleOTP(e,i)}
+                     onPaste={e => handlePaste(e)} autoFocus={i===0}/>))
+                  }
+                </div>
+                <div className="text-center">
                   <button
                     className="btn btn-primary btn-sm"
                     onClick={verifyOTP}
@@ -196,11 +218,12 @@ export default function Signup() {
                     Verify
                   </button>
                 </div>
-              </>
+              </div>
             )}
 
             {passwordBox && (
               <>
+                <h5 className="mb-3 text-center">Signup</h5>
                 <label htmlFor="">Full Name</label>
                 <input
                   type="text"
