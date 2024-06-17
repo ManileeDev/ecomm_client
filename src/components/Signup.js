@@ -163,9 +163,13 @@ export default function Signup() {
   }
 
   const handlePaste = (e) => {
-    const value = e.clipboardData.getData("text");
+    const value = e.clipboardData.getData("text").slice(0,otp.length);
     if (isNaN(value)) return
     setOtp([...value.split("")])
+    const focusedInput = e.target.parentNode.querySelector("input:focus")
+    if(focusedInput){
+      focusedInput.blur();
+    }
   }
 
   return (
@@ -173,9 +177,6 @@ export default function Signup() {
       <div className="loginpage">
         <div className="login-box">
           <div className="form-control">
-            {/* {error && <div className='text-center my-2'>
-                                    <small className='text-danger'>{error}</small>
-                                </div>} */}
             {emailBox && (
               <>
                 <label htmlFor="">Email</label>
