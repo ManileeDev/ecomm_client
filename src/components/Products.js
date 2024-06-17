@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import axios from 'axios'
+import ProductSkeleton from './ProductSkeleton';
 
 export default function Products({ searchVal }) {
   const [products, setProducts] = useState([])
@@ -28,10 +29,7 @@ export default function Products({ searchVal }) {
   return (
     <div className="products">
     {loading ? (
-        <div>
-          <p>Please wait...</p>
-          <p>Fetching data...</p>
-        </div>
+       <ProductSkeleton/>
       ) : (
         
           <>{products &&
