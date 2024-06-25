@@ -51,6 +51,70 @@ export default function ProductSkeleton() {
                 <div className="skull-product-price"></div>
                 <div className="skull-product-add-btn"></div>
             </div>
+            <div className="skull-prod-card" >
+                <div className='skull-image-container'>
+
+                </div>
+                <div className="skull-product-name"></div>
+                <div className="skull-product-price"></div>
+                <div className="skull-product-add-btn"></div>
+            </div>
+            <div className="skull-prod-card" >
+                <div className='skull-image-container'>
+
+                </div>
+                <div className="skull-product-name"></div>
+                <div className="skull-product-price"></div>
+                <div className="skull-product-add-btn"></div>
+            </div>
+            <div className="skull-prod-card" >
+                <div className='skull-image-container'>
+
+                </div>
+                <div className="skull-product-name"></div>
+                <div className="skull-product-price"></div>
+                <div className="skull-product-add-btn"></div>
+            </div>
+            <div className="skull-prod-card" >
+                <div className='skull-image-container'>
+
+                </div>
+                <div className="skull-product-name"></div>
+                <div className="skull-product-price"></div>
+                <div className="skull-product-add-btn"></div>
+            </div>
+            <div className="skull-prod-card" >
+                <div className='skull-image-container'>
+
+                </div>
+                <div className="skull-product-name"></div>
+                <div className="skull-product-price"></div>
+                <div className="skull-product-add-btn"></div>
+            </div>
+            <div className="skull-prod-card" >
+                <div className='skull-image-container'>
+
+                </div>
+                <div className="skull-product-name"></div>
+                <div className="skull-product-price"></div>
+                <div className="skull-product-add-btn"></div>
+            </div>
+            <div className="skull-prod-card" >
+                <div className='skull-image-container'>
+
+                </div>
+                <div className="skull-product-name"></div>
+                <div className="skull-product-price"></div>
+                <div className="skull-product-add-btn"></div>
+            </div>
+            <div className="skull-prod-card" >
+                <div className='skull-image-container'>
+
+                </div>
+                <div className="skull-product-name"></div>
+                <div className="skull-product-price"></div>
+                <div className="skull-product-add-btn"></div>
+            </div>
             
            
         </div>
