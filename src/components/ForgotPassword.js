@@ -14,7 +14,7 @@ export default function ForgotPassword() {
     if (!email) {
       return setError("Email must be filled")
     }
-    axios.post("https://ecomm-backend-z1w5.onrender.com/api/forgotpassword",{email}).then(response => {
+    axios.post("https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/forgotpassword",{email}).then(response => {
         setEmailsent(true);
         setError(null);
         
