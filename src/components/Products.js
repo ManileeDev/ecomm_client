@@ -10,7 +10,7 @@ export default function Products({ searchVal }) {
   useEffect(() => {
     const fetchData = async () => {
       try{
-        const response = await axios.get("https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/products")
+        const response = await axios.get("https://uluev3zubsbxlhmtobin2qzj540wliqn.lambda-url.ap-south-1.on.aws/api/products")
         setProducts(response.data.products);
         setLoading(false);
 
