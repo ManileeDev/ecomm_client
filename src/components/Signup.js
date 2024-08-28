@@ -44,7 +44,7 @@ export default function Signup() {
     }
     try {
       setLoading(true)
-      const response = await fetch('https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/signup', {
+      const response = await fetch('https://server-seven-red.vercel.app/api/signup', {
         headers: {
           "Content-Type": "application/json"
         },
@@ -72,7 +72,7 @@ export default function Signup() {
     }
     try {
       setLoading(true)
-      const response = await fetch('https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/generate-otp', {
+      const response = await fetch('https://server-seven-red.vercel.app/api/generate-otp', {
         headers: {
           "Content-Type": "application/json"
         },
@@ -103,7 +103,7 @@ export default function Signup() {
 
     try {
       setLoading(true)
-      const response = await fetch('https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/validate-otp', {
+      const response = await fetch('https://server-seven-red.vercel.app/api/validate-otp', {
         headers: {
           "Content-Type": "application/json"
         },

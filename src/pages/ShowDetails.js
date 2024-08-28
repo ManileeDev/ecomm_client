@@ -72,7 +72,7 @@ const ShowDetails = () => {
         useEffect(() => {
             const showProduct = () => {
                 axios
-                    .get("https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/product/" + id)
+                    .get("https://server-seven-red.vercel.app/api/product/" + id)
                     .then((result) => setProduct(result.data.product))
                     .catch((err) => err.message);
             };

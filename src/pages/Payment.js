@@ -17,7 +17,7 @@ const Payment = () => {
   const receipt = "testing321"
   
   const updateCartData = (id)=>{
-    axios.post("https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/removecart", { id })
+    axios.post("https://server-seven-red.vercel.app/api/removecart", { id })
     .then(() => {
       console.log("Item Removed");
       dispatch({ type: "CLEAR_CART"});
@@ -27,7 +27,7 @@ const Payment = () => {
 
   const paymentHandler = async (e) => {
     try {
-      const res = await axios.post("https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/makepayment", {amount: amount * 100, currency,receipt});
+      const res = await axios.post("https://server-seven-red.vercel.app/api/makepayment", {amount: amount * 100, currency,receipt});
       var options = {
         "key": process.env.rzp_key, // Enter the Key ID generated from the Dashboard
         amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
@@ -41,9 +41,9 @@ const Payment = () => {
           const body = {
             ...response
           }
-          const validateResponse = await axios.post("https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/verifypayment", body)
+          const validateResponse = await axios.post("https://server-seven-red.vercel.app/api/verifypayment", body)
           if (validateResponse.data.success) {
-            const orderResponse = await axios.post("https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/create-order", {
+            const orderResponse = await axios.post("https://server-seven-red.vercel.app/api/create-order", {
               amount,
               address: address,
               userId: user._id,

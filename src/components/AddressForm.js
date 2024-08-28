@@ -25,7 +25,7 @@ const AddressForm = () => {
     }
     const submitHandler = (e) => {
         e.preventDefault();
-        axios.post('https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/address', { address, userId })
+        axios.post('https://server-seven-red.vercel.app/api/address', { address, userId })
             .then(res => {
                 toast.success("Address Added Successfully")
                 setTimeout(()=>{dispatch({type : "UPDATEUSER",payload : {...user,address}})},1500)

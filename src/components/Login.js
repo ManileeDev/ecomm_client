@@ -35,7 +35,7 @@ export default function Login() {
       return setError("All field must be filled");
     }
     try {
-      const response = await fetch('https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/login', {
+      const response = await fetch('https://server-seven-red.vercel.app/api/login', {
           headers: {
               "Content-Type": "application/json"
           },

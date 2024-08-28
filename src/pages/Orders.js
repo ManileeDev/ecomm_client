@@ -34,7 +34,7 @@ const Orders = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/getorder/${user._id}`)
+        const response = await axios.get(`https://server-seven-red.vercel.app/api/getorder/${user._id}`)
       if(response.data.sucess === true){
         return setOrders(response.data.order)
       }

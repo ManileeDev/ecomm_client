@@ -16,7 +16,7 @@ export default function Cart() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/getcart/${userId}`);
+        const response = await fetch(`https://server-seven-red.vercel.app/api/getcart/${userId}`);
         const json = await response.json();
         if (response.ok) {
           return dispatch({type:"UPDATE_CART",payload:json})
@@ -36,7 +36,7 @@ export default function Cart() {
 
 
   const updateCartData = (id)=>{
-    axios.post("https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/removecart", { id })
+    axios.post("https://server-seven-red.vercel.app/api/removecart", { id })
     .then(() => {
       toast.success("Item Removed");
       const cartItems = cart.filter((cartval) => cartval._id !== id);

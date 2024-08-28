@@ -18,7 +18,7 @@ const Popup = ({ product, isShow, setIsShow, show, setShow, value, valueHandler,
         //  dispatch({ type: 'ADDTOCART', payload: datas})
         //  localStorage.setItem("cart", JSON.stringify(datas))
         if (user) {
-            axios.post("https://vaa3ernrnomwlgmbzfveeyyqpi0cvjau.lambda-url.us-east-1.on.aws/api/addtocart", datas)
+            axios.post("https://server-seven-red.vercel.app/api/addtocart", datas)
                 .then(result => {
                     if (result.data.success == true) {
 
